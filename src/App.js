@@ -14,6 +14,8 @@ import AuthRoute from "./util/AuthRoute";
 import { SET_AUTHENTICATED } from "./redux/types";
 import { logoutUser, getUserData } from "./redux/actions/userAction";
 import axios from "axios";
+axios.defaults.baseURL =
+  "https://us-central1-peter-87987.cloudfunctions.net/api";
 const theme = createMuiTheme({
   palette: {
     light: "#33c9dc",
