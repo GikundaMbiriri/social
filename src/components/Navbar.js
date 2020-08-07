@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import MyButton from "../util/MyButton";
+import PostScream from "./PostScream";
+
 import {
   Add as AddIcon,
   Home as HomeIcon,
@@ -19,9 +21,7 @@ class Navbar extends Component {
         <ToolBar className="nav-container">
           {authenticated ? (
             <>
-              <MyButton tip="Post a scream">
-                <AddIcon color="primary" />
-              </MyButton>
+              <PostScream />
               <Link to="/">
                 <MyButton tip="Home">
                   <HomeIcon color="primary" />

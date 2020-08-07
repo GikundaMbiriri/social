@@ -15,10 +15,13 @@ import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import Favorite from "@material-ui/icons/Favorite";
 import relativeTime from "dayjs/plugin/relativeTime";
 import DeleteScream from "./DeleteScream";
+import ScreamDialog from "./ScreamDialog";
+
 const styles = {
   card: {
     display: "flex",
     marginBottom: 20,
+    position: "relative",
   },
   image: {
     minWidth: 200,
@@ -105,6 +108,7 @@ class Scream extends Component {
             <ChatIcon color="primary" />
           </MyButton>
           <span>{commentCount} comments</span>
+          <ScreamDialog screamId={screamId} userhandle={userhandle} />
         </CardContent>
       </Card>
     );
