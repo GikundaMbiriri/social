@@ -16,7 +16,7 @@ import axios from "axios";
 export const getScreams = () => (dispatch) => {
   dispatch({ type: LOADING_DATA });
   axios
-    .get("/screams")
+    .get("https://us-central1-peter-87987.cloudfunctions.net/api/screams")
     .then((res) => {
       dispatch({
         type: SET_SCREAMS,
@@ -32,7 +32,9 @@ export const getScreams = () => (dispatch) => {
 };
 export const likeScream = (screamId) => (dispatch) => {
   axios
-    .get(`/scream/${screamId}/like`)
+    .get(
+      `https://us-central1-peter-87987.cloudfunctions.net/api/scream/${screamId}/like`
+    )
     .then((res) => {
       dispatch({
         type: LIKE_SCREAM,
@@ -54,7 +56,9 @@ export const unlikeScream = (screamId) => (dispatch) => {
 };
 export const deleteScream = (screamId) => (dispatch) => {
   axios
-    .delete(`/scream/${screamId}`)
+    .delete(
+      `https://us-central1-peter-87987.cloudfunctions.net/api/scream/${screamId}`
+    )
     .then(() => {
       dispatch({ type: DELETE_SCREAM, payload: screamId });
     })
@@ -63,7 +67,10 @@ export const deleteScream = (screamId) => (dispatch) => {
 export const postScream = (newScream) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
-    .post("/scream", newScream)
+    .post(
+      "https://us-central1-peter-87987.cloudfunctions.net/api/scream",
+      newScream
+    )
     .then((res) => {
       dispatch({ type: POST_SCREAM, payload: res.data });
       dispatch({ type: CLEAR_ERRORS });
@@ -84,7 +91,9 @@ export const clearData = () => (dispatch) => {
 export const getScream = (screamId) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
-    .get(`/scream/${screamId}`)
+    .get(
+      `https://us-central1-peter-87987.cloudfunctions.net/api/scream/${screamId}`
+    )
     .then((res) => {
       dispatch({ type: SET_SCREAM, payload: res.data });
       dispatch({ type: STOP_LOADING_UI });

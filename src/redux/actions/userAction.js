@@ -11,7 +11,10 @@ import axios from "axios";
 export const loginUser = (userData, history) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
-    .post("/login", userData)
+    .post(
+      "https://us-central1-peter-87987.cloudfunctions.net/api/login",
+      userData
+    )
     .then((res) => {
       const FBIdToken = `Bearer ${res.data.token}`;
       localStorage.setItem("FBIdToken", FBIdToken);
@@ -31,7 +34,10 @@ export const loginUser = (userData, history) => (dispatch) => {
 export const signupUser = (newUserData, history) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
-    .post("/signup", newUserData)
+    .post(
+      "https://us-central1-peter-87987.cloudfunctions.net/api/signup",
+      newUserData
+    )
     .then((res) => {
       const FBIdToken = `Bearer ${res.data.token}`;
       localStorage.setItem("FBIdToken", FBIdToken);
@@ -56,7 +62,7 @@ export const logoutUser = () => (dispatch) => {
 export const getUserData = () => (dispatch) => {
   dispatch({ type: LOADING_USER });
   axios
-    .get("/user")
+    .get("https://us-central1-peter-87987.cloudfunctions.net/api/user")
     .then((res) => {
       dispatch({
         type: SET_USER,
@@ -68,7 +74,10 @@ export const getUserData = () => (dispatch) => {
 export const uploadImage = (formData) => (dispatch) => {
   dispatch({ type: LOADING_USER });
   axios
-    .post("/user/image", formData)
+    .post(
+      "https://us-central1-peter-87987.cloudfunctions.net/api/user/image",
+      formData
+    )
     .then(() => {
       dispatch(getUserData());
     })
@@ -79,7 +88,10 @@ export const uploadImage = (formData) => (dispatch) => {
 export const editUserDetails = (userDetails) => (dispatch) => {
   dispatch({ type: LOADING_USER });
   axios
-    .post("/user", userDetails)
+    .post(
+      "https://us-central1-peter-87987.cloudfunctions.net/api/user",
+      userDetails
+    )
     .then(() => {
       dispatch(getUserData());
     })
