@@ -179,7 +179,6 @@ ScreamDialog.propTypes = {
   screamId: PropTypes.string.isRequired,
   userhandle: PropTypes.string.isRequired,
   scream: PropTypes.object.isRequired,
-  UI: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
   scream: state.data.scream,

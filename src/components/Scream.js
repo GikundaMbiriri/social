@@ -87,30 +87,37 @@ class Scream extends Component {
         <DeleteScream screamId={screamId} />
       ) : null;
     return (
-      <Card className={classes.card}>
-        <CardMedia
-          image={userImage}
-          title="Profile image"
-          className={classes.image}
-        />
-        <CardContent className={classes.content}>
-          <Typography variant="h5" component={Link} to={`/users/${userhandle}`}>
-            {userhandle}
-          </Typography>
-          {deleteButton}
-          <Typography variant="body2" color="textSecondary">
-            {dayjs(createdAt).fromNow()}
-          </Typography>
-          <Typography variant="body1">{body}</Typography>
-          {likeButton}
-          <span>{likeCount} Likes</span>
-          <MyButton tip="comments">
-            <ChatIcon color="primary" />
-          </MyButton>
-          <span>{commentCount} comments</span>
-          <ScreamDialog screamId={screamId} userhandle={userhandle} />
-        </CardContent>
-      </Card>
+      <>
+        <Card className={classes.card}>
+          <CardMedia
+            src={userImage}
+            title="Profile image"
+            className={classes.image}
+            component="img"
+          />
+          <CardContent className={classes.content}>
+            <Typography
+              variant="h5"
+              component={Link}
+              to={`/users/${userhandle}`}
+            >
+              {userhandle}
+            </Typography>
+            {deleteButton}
+            <Typography variant="body2" color="textSecondary">
+              {dayjs(createdAt).fromNow()}
+            </Typography>
+            <Typography variant="body1">{body}</Typography>
+            {likeButton}
+            <span>{likeCount} Likes</span>
+            <MyButton tip="comments">
+              <ChatIcon color="primary" />
+            </MyButton>
+            <span>{commentCount} comments</span>
+            <ScreamDialog screamId={screamId} userhandle={userhandle} />
+          </CardContent>
+        </Card>
+      </>
     );
   }
 }
