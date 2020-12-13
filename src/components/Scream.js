@@ -16,15 +16,20 @@ import Favorite from "@material-ui/icons/Favorite";
 import relativeTime from "dayjs/plugin/relativeTime";
 import DeleteScream from "./DeleteScream";
 import ScreamDialog from "./ScreamDialog";
-
 const styles = {
   card: {
     display: "flex",
     marginBottom: 20,
     position: "relative",
+    '@media(maxWidth: 780px)' : {
+      width: '80%'
+    }
+    
   },
   image: {
-    minWidth: 200,
+    width:"70px",
+    height:"70px",
+    objectFit:"cover"
   },
   content: {
     padding: 25,
@@ -88,7 +93,8 @@ class Scream extends Component {
       ) : null;
     return (
       <>
-        <Card className={classes.card}>
+        <Card className={classes.card}  >
+         
           <CardMedia
             src={userImage}
             title="Profile image"

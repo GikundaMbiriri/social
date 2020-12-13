@@ -36,6 +36,10 @@ const theme = createMuiTheme({
     form: {
       textAlign: "center",
     },
+    image1:{
+      width: "70px",
+      height:"70px"
+    },
     image: {
       margin: "20px auto 20px auto",
       width: "70px",
