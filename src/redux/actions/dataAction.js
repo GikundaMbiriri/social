@@ -51,6 +51,7 @@ export const unlikeScream = (screamId) => (dispatch) => {
         type: UNLIKE_SCREAM,
         payload: res.data,
       });
+      console.log(res.data)
     })
     .catch((err) => console.log(err));
 };
